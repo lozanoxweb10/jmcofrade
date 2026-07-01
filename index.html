@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>J&M Cofrade — Semana Santa de Jerez y Málaga</title>
+<meta name="description" content="Enciclopedia digital de la Semana Santa de Jerez de la Frontera y Málaga: hermandades, titulares, pasos y tronos, historia, glosario cofrade y patrimonio.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cormorant+SC:wght@600;700&family=Sora:wght@300;400;500;600;700&display=swap');
+
+
+:root{
+  --bg:#120D0A;
+  --bg-soft:#1A130E;
+  --surface:#221911;
+  --surface-2:#2A1F15;
+  --line: rgba(201,162,39,.18);
+  --ivory:#EFE6D3;
+  --muted:#B6A98E;
+  --gold:#C9A227;
+  --gold-light:#E7CC7E;
+  --burgundy:#7E1228;
+  --burgundy-light:#A3324A;
+  --purple:#4E2068;
+  --marian:#1F3A5F;
+  --hope:#33573B;
+  --silver:#C9CFD3;
+  --cardinal:#A8132C;
+  --r-lg:18px;
+  --r-md:12px;
+  --r-sm:8px;
+  --serif:'Cormorant Garamond', Georgia, serif;
+  --display:'Cormorant SC', 'Cormorant Garamond', serif;
+  --sans:'Sora', system-ui, sans-serif;
+  --shadow: 0 18px 50px -20px rgba(0,0,0,.65);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--bg);color:var(--ivory);
+  font-family:var(--sans);font-weight:400;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--gold);color:#1a1208;}
+:focus-visible{outline:2px solid var(--gold-light); outline-offset:3px;}
+
+
+/* ---------- texture / background ---------- */
+body{
+  background-image:
+    radial-gradient(circle at 18% 8%, rgba(126,18,40,.18), transparent 42%),
+    radial-gradient(circle at 85% 18%, rgba(78,32,104,.16), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(201,162,39,.08), transparent 50%);
+}
+
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+@media(max-width:640px){.wrap{padding:0 18px;}}
+
+
+.eyebrow{
+  font-family:var(--sans);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-light);font-weight:600;display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);display:inline-block;}
+
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;margin:0;letter-spacing:.01em;}
+.h-display{font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:1.02;}
+.h-section{font-size:clamp(1.9rem,3.4vw,2.7rem);}
+.h-card{font-size:1.32rem;}
+p{margin:0;}
+.lede{font-family:var(--serif);font-style:italic;font-size:1.18rem;color:var(--gold-light);line-height:1.5;}
+.muted{color:var(--muted);}
+
+
+/* ---------- ornamental flourish (signature element) ---------- */
+.flourish{width:100%;display:flex;justify-content:center;margin:0 auto;opacity:.85;}
+.flourish svg{height:30px;width:auto;}
+.flourish path,.flourish circle{stroke:var(--gold);}
+
+
+/* ---------- header / nav ---------- */
+header.site{
+  position:sticky;top:0;z-index:60;
+  background:rgba(18,13,10,.86);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:18px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:1.32rem;letter-spacing:.03em;}
+.brand .mark{width:30px;height:30px;flex:none;}
+.brand .mark path{stroke:var(--gold-light);}
+nav.links{display:flex;gap:22px;flex-wrap:wrap;align-items:center;}
+nav.links a{
+  font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;transition:color .2s;padding:6px 2px;border-bottom:1px solid transparent;
+}
+nav.links a:hover, nav.links a.active{color:var(--gold-light);border-color:var(--gold);}
+.nav-actions{display:flex;align-items:center;gap:10px;}
+.icon-btn{
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gold-light);
+}
+.icon-btn svg{width:17px;height:17px;}
+.menu-toggle{display:none;}
+@media(max-width:920px){
+  nav.links{display:none;}
+  .menu-toggle{display:flex;}
+  nav.links.open{
+    display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;
+    background:var(--bg-soft);padding:18px 28px;border-bottom:1px solid var(--line);gap:14px;
+  }
+}
+
+
+/* ---------- buttons / chips ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 22px;
+  font-family:var(--sans);font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;font-weight:600;
+  border:1px solid var(--gold);color:var(--gold-light);background:transparent;cursor:pointer;transition:.2s;
+}
+.btn.solid{background:linear-gradient(135deg,var(--gold),#9c7a1c);color:#1a1208;border-color:transparent;}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px -8px rgba(201,162,39,.5);}
+.chip{
+  border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;
+  padding:7px 15px;font-size:.78rem;cursor:pointer;transition:.15s;white-space:nowrap;
+}
+.chip.active{background:var(--gold);color:#1a1208;border-color:var(--gold);font-weight:600;}
+
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:120px 0 70px;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center;}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr;}}
+.hero h1{margin:18px 0 22px;}
+.hero h1 em{font-style:italic;color:var(--gold-light);}
+.hero .lede{margin-bottom:30px;max-width:46ch;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+.hero-art{
+  position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(160deg,var(--surface),var(--bg-soft));
+  min-height:380px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);
+}
+.hero-art .frame-label{
+  position:absolute;bottom:16px;left:16px;right:16px;font-size:.72rem;color:var(--muted);
+  letter-spacing:.04em;
+}
+.placeholder-img{
+  width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;color:var(--muted);text-align:center;padding:24px;
+  background:repeating-linear-gradient(135deg, rgba(201,162,39,.05) 0 18px, transparent 18px 36px);
+  border:1px dashed var(--line);border-radius:inherit;
+}
+.placeholder-img svg{width:38px;height:38px;opacity:.7;}
+.placeholder-img b{color:var(--gold-light);font-family:var(--serif);font-weight:600;font-size:1.02rem;}
+.placeholder-img span{font-size:.74rem;letter-spacing:.03em;}
+
+
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:60px;}
+@media(max-width:780px){.stats-strip{grid-template-columns:repeat(2,1fr);}}
+.stat{border-top:1px solid var(--line);padding-top:14px;}
+.stat .num{font-family:var(--display);font-size:1.9rem;color:var(--gold-light);}
+.stat .lbl{font-size:.76rem;color:var(--muted);letter-spacing:.03em;}
+
+
+/* ---------- sections generic ---------- */
+section{padding:88px 0;}
+section.alt{background:linear-gradient(180deg, rgba(34,25,17,.5), transparent);}
+.section-head{max-width:760px;margin-bottom:46px;}
+.section-head h2{margin-top:14px;}
+.section-head .lede{margin-top:14px;}
+
+
+/* ---------- timeline ---------- */
+.century-tabs{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:34px;}
+.timeline-panel{display:grid;grid-template-columns:1fr 1px 1fr;gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--surface);}
+@media(max-width:760px){.timeline-panel{grid-template-columns:1fr;}}
+.timeline-col{padding:34px;}
+.timeline-col .city-tag{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:14px;display:block;}
+.timeline-col p{font-size:.97rem;color:#DCD2BC;}
+.timeline-col ul{margin:14px 0 0;padding-left:18px;color:var(--muted);font-size:.93rem;}
+.timeline-col li{margin-bottom:8px;}
+.timeline-divider{background:linear-gradient(var(--purple),var(--burgundy));}
+@media(max-width:760px){.timeline-divider{height:1px;background:var(--line);}}
+
+
+/* ---------- city feature sections ---------- */
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+@media(max-width:760px){.feature-grid{grid-template-columns:1fr;}}
+.feature-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:24px;
+}
+.feature-card h3{font-size:1.12rem;color:var(--gold-light);margin-bottom:10px;}
+.feature-card p{color:#D9CFB9;font-size:.93rem;}
+
+
+/* ---------- toolbar (search + filters) ---------- */
+.toolbar{
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:18px;margin-bottom:30px;
+}
+.search-box{position:relative;flex:1 1 260px;min-width:220px;}
+.search-box input{
+  width:100%;background:var(--bg-soft);border:1px solid var(--line);color:var(--ivory);
+  border-radius:999px;padding:11px 18px 11px 40px;font-family:var(--sans);font-size:.9rem;
+}
+.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted);}
+.filters{display:flex;gap:8px;flex-wrap:wrap;}
+select.filter-select{
+  background:var(--bg-soft);border:1px solid var(--line);color:var(--ivory);border-radius:999px;
+  padding:9px 14px;font-size:.82rem;font-family:var(--sans);
+}
+.result-count{font-size:.78rem;color:var(--muted);width:100%;text-align:right;}
+
+
+/* ---------- hermandad cards ---------- */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:980px){.card-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:620px){.card-grid{grid-template-columns:1fr;}}
+
+
+.h-card-el{
+  border-radius:var(--r-lg);overflow:hidden;background:var(--surface);
+  border:1px solid var(--line);position:relative;transition:transform .25s, box-shadow .25s;
+  --accent:var(--gold);
+}
+.h-card-el:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.h-card-el .accent-bar{height:5px;background:var(--accent);}
+.h-card-el .img-slot{
+  aspect-ratio:4/3;background:
+    linear-gradient(160deg, color-mix(in srgb, var(--accent) 18%, var(--bg-soft)), var(--bg-soft));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--muted);
+  border-bottom:1px solid var(--line);padding:14px;text-align:center;
+}
+.img-slot svg{width:30px;height:30px;color:var(--accent);opacity:.8;}
+.img-slot span{font-size:.7rem;letter-spacing:.03em;}
+.img-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+.img-slot:has(>img){padding:0;}
+.swatch-half img{width:100%;height:100%;object-fit:cover;display:block;}
+.h-card-body{padding:22px;}
+.h-card-body .city-pill{
+  display:inline-block;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:8px;
+}
+.h-card-body h3{font-size:1.16rem;line-height:1.25;margin-bottom:6px;}
+.h-card-body .meta{font-size:.8rem;color:var(--muted);margin-bottom:12px;}
+.h-card-body .meta b{color:#D9CFB9;font-weight:600;}
+.h-card-body p.desc{font-size:.88rem;color:#D9CFB9;margin-bottom:14px;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;}
+.tag-row span{
+  font-size:.68rem;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:3px 8px;
+}
+.h-card-body details{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px;}
+.h-card-body summary{cursor:pointer;font-size:.78rem;color:var(--gold-light);letter-spacing:.03em;text-transform:uppercase;font-weight:600;}
+.h-card-body .more p{margin-top:10px;font-size:.86rem;color:#CFC4AC;}
+.h-card-body .more .field{margin-top:8px;font-size:.84rem;}
+.h-card-body .more .field b{color:var(--gold-light);font-weight:600;}
+
+
+/* ---------- titulares / pasos / escudos minicards ---------- */
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+@media(max-width:980px){.mini-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:680px){.mini-grid{grid-template-columns:repeat(2,1fr);}}
+.mini-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;
+}
+.mini-card .img-slot{aspect-ratio:1/1;}
+.mini-card .body{padding:14px;}
+.mini-card .type{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,var(--gold));font-weight:700;}
+.mini-card h4{font-size:.96rem;margin:5px 0 4px;line-height:1.25;}
+.mini-card .sub{font-size:.76rem;color:var(--muted);}
+
+
+/* escudo/tunica swatch */
+.swatch-card .img-slot{aspect-ratio:1/1.1;flex-direction:row;gap:0;padding:0;}
+.swatch-half{flex:1;height:100%;display:flex;align-items:center;justify-content:center;}
+.swatch-half svg{width:34px;height:34px;}
+
+
+/* ---------- curiosidades ---------- */
+.curio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:900px){.curio-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.curio-grid{grid-template-columns:1fr;}}
+.curio-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:22px;
+  position:relative;
+}
+.curio-card .ico{width:30px;height:30px;color:var(--gold-light);margin-bottom:12px;}
+.curio-card h4{font-size:1rem;margin-bottom:8px;line-height:1.3;}
+.curio-card p{font-size:.86rem;color:#CFC4AC;}
+.curio-card .tag{position:absolute;top:18px;right:18px;font-size:.66rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+
+
+/* ---------- glossary ---------- */
+.glossary-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:30px;}
+.glossary-nav a{
+  width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;
+  justify-content:center;font-size:.78rem;color:var(--muted);font-family:var(--display);
+}
+.glossary-nav a:hover{border-color:var(--gold);color:var(--gold-light);}
+.gloss-letter{font-family:var(--display);font-size:1.6rem;color:var(--gold-light);margin:36px 0 14px;display:flex;align-items:center;gap:14px;}
+.gloss-letter::after{content:"";flex:1;height:1px;background:var(--line);}
+.gloss-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 30px;}
+@media(max-width:700px){.gloss-grid{grid-template-columns:1fr;}}
+.gloss-item dt{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:var(--ivory);}
+.gloss-item dd{margin:4px 0 0;font-size:.88rem;color:var(--muted);}
+
+
+/* ---------- patrimonio ---------- */
+.patrimonio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:980px){.patrimonio-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:620px){.patrimonio-grid{grid-template-columns:1fr;}}
+.iglesia-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;}
+.iglesia-card .img-slot{aspect-ratio:16/10;}
+.iglesia-card .body{padding:20px;}
+.iglesia-card .city-pill{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);font-weight:700;}
+.iglesia-card h3{font-size:1.05rem;margin:6px 0 8px;}
+.iglesia-card p{font-size:.85rem;color:#CFC4AC;}
+
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:54px 0 30px;background:var(--bg-soft);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;}
+@media(max-width:760px){.footer-grid{grid-template-columns:1fr;gap:28px;}}
+footer h4{font-size:.84rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px;}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+footer a{font-size:.86rem;color:var(--muted);}
+footer a:hover{color:var(--gold-light);}
+.footer-bottom{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+
+/* ---------- search modal ---------- */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(8,5,3,.78);backdrop-filter:blur(3px);z-index:100;
+  display:none;align-items:flex-start;justify-content:center;padding:90px 20px;
+}
+.modal-overlay.open{display:flex;}
+.modal-box{
+  width:100%;max-width:620px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:24px;box-shadow:var(--shadow);max-height:70vh;overflow:auto;
+}
+.modal-box input{
+  width:100%;background:var(--bg-soft);border:1px solid var(--line);color:var(--ivory);border-radius:999px;
+  padding:13px 18px;font-size:1rem;font-family:var(--sans);margin-bottom:16px;
+}
+.modal-results a{
+  display:flex;justify-content:space-between;gap:10px;padding:12px 8px;border-bottom:1px solid var(--line);
+  font-size:.92rem;
+}
+.modal-results a:hover{color:var(--gold-light);}
+.modal-results small{color:var(--muted);}
+.modal-close{float:right;color:var(--muted);cursor:pointer;font-size:.8rem;}
+
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none !important; animation:none !important;}
+}
+</style>
+</head>
+<body>
+
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="wrap nav-row">
+    <a href="#inicio" class="brand">
+        <img src="logoss.avif" alt="logitoss" height="90" width="90"> J&M Cofrade
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#historia">Historia</a>
+      <a href="#jerez">Jerez</a>
+      <a href="#malaga">Málaga</a>
+      <a href="#hermandades">Hermandades</a>
+      <a href="#titulares">Titulares</a>
+      <a href="#pasos">Pasos y Tronos</a>
+      <a href="#escudos">Escudos y Túnicas</a>
+      <a href="#curiosidades">Curiosidades</a>
+      <a href="#glosario">Glosario</a>
+      <a href="#patrimonio">Patrimonio</a>
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+
+<!-- ============ HERO ============ -->
+<section id="inicio" class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Jerez de la Frontera &amp; Málaga</span>
+        <h1 class="h-display">La Pasión hecha <em>cera, plata<br> y oro viejo</em></h1>
+        <p class="lede">"Donde el incienso se confunde con el azahar, y el silencio de un Viernes Santo pesa más que cualquier palabra." — Enciclopedia digital de la Semana Santa jerezana y malagueña.</p>
+        <div class="hero-actions">
+          <a href="#hermandades" class="btn solid">Explorar hermandades</a>
+          <a href="#historia" class="btn">Ver la historia</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="placeholder-img">
+          <b><img src="ssportada.jpg" alt=""></b>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="stats-strip">
+      <div class="stat"><div class="num">+90</div><div class="lbl">Hermandades entre ambas ciudades</div></div>
+      <div class="stat"><div class="num">S. XVI</div><div class="lbl">Origen documentado de las primeras cofradías</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Semanas Santas, dos formas de vivir la Pasión</div></div>
+      <div class="stat"><div class="num">1487–hoy</div><div class="lbl">Más de cinco siglos de fe ininterrumpida</div></div>
+    </div>
+  </div>
+</section>
+
+
+<div class="flourish"><svg viewBox="0 0 200 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="1.1"><path d="M0 12 H70 M130 12 H200"/><path d="M70 12 C78 2, 92 2, 100 12 C108 22, 122 22, 130 12"/><circle cx="100" cy="12" r="3"/></svg></div>
+
+
+<!-- ============ HISTORIA ============ -->
+<section id="historia" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Origen y evolución</span>
+      <h2 class="h-section">Seis siglos de Semana Santa</h2>
+      <p class="lede">Desde las cofradías gremiales del siglo XVI hasta las grandes procesiones magnas del presente: así llegaron Jerez y Málaga hasta la Semana Santa que hoy conocemos.</p>
+    </div>
+    <div class="century-tabs" id="centuryTabs"></div>
+    <div class="timeline-panel" id="timelinePanel"></div>
+  </div>
+</section>
+
+
+<!-- ============ JEREZ ============ -->
+<section id="jerez">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="color:var(--burgundy-light)">Semana Santa de Jerez de la Frontera</span>
+      <h2 class="h-section">La saeta, la cal y el paso "a la egipcia"</h2>
+      <p class="lede">Declarada Bien de Interés Turístico Nacional, la Semana Santa jerezana es —tras Sevilla— la que reúne mayor número de hermandades de España, y la única donde aún sobreviven formas procesionales de raíz medieval.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Orígenes y evolución</h3>
+        <p>Las primeras cofradías de penitencia jerezanas se documentan en el siglo XVI, aunque ya existen referencias a procesiones del Santo Entierro en 1340. Tras la crisis del siglo XIX —invasión francesa, desamortización y gobiernos anticlericales—, la Semana Santa resurge con fuerza a comienzos del siglo XX.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Carrera Oficial</h3>
+        <p>Su recorrido oficial, de aproximadamente 1,3 km entre la Plaza Aladro y la Catedral, es uno de los más largos de Andalucía. La necesidad de organizarlo dio origen, el 21 de febrero de 1938, a la Unión de Hermandades de Jerez.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Estilo propio: "a la egipcia"</h3>
+        <p>Dos hermandades —Jesús Nazareno y el Cristo de la Expiración— conservan un estilo anterior a la influencia sevillana: el nazareno porta el paso a un solo hombro y sin antifaz que cubra el rostro, herencia de las primitivas cofradías de luz y de sangre.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Saeta y bandas</h3>
+        <p>El palo flamenco de la saeta, declarado por la UNESCO Patrimonio Inmaterial de la Humanidad, tiene en Jerez —cuna del flamenco— una de sus expresiones más vivas durante la Semana Santa, junto a un rico patrimonio de bandas de música y de cornetas y tambores.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ MÁLAGA ============ -->
+<section id="malaga" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="color:var(--marian)">Semana Santa de Málaga</span>
+      <h2 class="h-section">Tronos al hombro, mar y Legión</h2>
+      <p class="lede">Declarada de Interés Turístico Internacional en 1980, la Semana Santa malagueña se distingue por sus tronos monumentales, portados a hombro por los llamados hombres y mujeres de trono, y por la presencia de cuerpos militares vinculados históricamente a sus hermandades.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Tronos, no pasos</h3>
+        <p>A diferencia del resto de Andalucía, en Málaga las imágenes procesionan en tronos: estructuras de gran tamaño —algunas superan las 4 toneladas y los 6 metros de altura— sostenidas por varales que se cargan directamente sobre el hombro.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Hombres y mujeres de trono</h3>
+        <p>Hasta 250 personas pueden portar un mismo trono. A diferencia de los costaleros sevillanos, no se introducen bajo el paso: caminan junto a él sosteniendo los varales, en un balanceo lento y característico.</p>
+      </div>
+      <div class="feature-card">
+        <h3>La Legión y otros cuerpos</h3>
+        <p>Varias hermandades mantienen una escolta histórica de cuerpos militares: la Legión con el Cristo de Mena, los Regulares con el Cautivo, la Caballería con la Zamarrilla, la Marina con la Soledad o la Guardia Civil con la Expiración.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Carrera Oficial y tradiciones</h3>
+        <p>El recorrido oficial discurre por el centro histórico con más de 20.000 localidades de pago. Entre sus tradiciones únicas destaca el desembarco del Cristo de Mena en el puerto, acompañado por legionarios que entonan "El novio de la muerte".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ HERMANDADES ============ -->
+<section id="hermandades">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Fichas completas</span>
+      <h2 class="h-section">Hermandades de Jerez y Málaga</h2>
+      <p class="lede">Cada hermandad incluye su historia, sede canónica, titulares, paso o trono y curiosidades. Todos los huecos de imagen están preparados para sustituirse por fotografías propias.</p>
+    </div>
+    <div class="card-grid" id="hermandadesGrid"></div>
+  </div>
+</section>
+ 
+<div class="flourish"><svg viewBox="0 0 200 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="1.1"><path d="M0 12 H70 M130 12 H200"/><path d="M70 12 C78 2, 92 2, 100 12 C108 22, 122 22, 130 12"/><circle cx="100" cy="12" r="3"/></svg></div>
+
+
+<!-- ============ TITULARES ============ -->
+<section id="titulares" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Cristos, Vírgenes y otros titulares</span>
+      <h2 class="h-section">Las imágenes que se veneran</h2>
+      <p class="lede">Cada titular pertenece a una hermandad; aquí se muestran de forma independiente para facilitar su consulta directa.</p>
+    </div>
+    <div class="mini-grid" id="titularesGrid"></div>
+  </div>
+</section>
+
+
+<!-- ============ PASOS / TRONOS ============ -->
+<section id="pasos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Imaginería en la calle</span>
+      <h2 class="h-section">Pasos de Jerez y tronos de Málaga</h2>
+      <p class="lede">En Jerez se llaman pasos; en Málaga, tronos. Cada ficha indica su hermandad, su ciudad y una foto.</p>
+    </div>
+    <div class="mini-grid" id="pasosGrid"></div>
+  </div>
+</section>
+
+
+<div class="flourish"><svg viewBox="0 0 200 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="1.1"><path d="M0 12 H70 M130 12 H200"/><path d="M70 12 C78 2, 92 2, 100 12 C108 22, 122 22, 130 12"/><circle cx="100" cy="12" r="3"/></svg></div>
+
+
+<!-- ============ ESCUDOS Y TÚNICAS ============ -->
+<section id="escudos" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Identidad visual cofrade</span>
+      <h2 class="h-section">Escudos y túnicas</h2>
+      <p class="lede">El escudo y el color de la túnica son la firma visual de cada corporación. Cada ficha reserva un hueco para el escudo y otro para la túnica.</p>
+    </div>
+    <div class="mini-grid" id="escudosGrid"></div>
+  </div>
+</section>
+
+
+<!-- ============ CURIOSIDADES ============ -->
+<section id="curiosidades">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Datos para sorprenderse</span>
+      <h2 class="h-section">Curiosidades cofrades</h2>
+    </div>
+    <div class="curio-grid" id="curiosidadesGrid"></div>
+  </div>
+</section>
+
+
+<div class="flourish"><svg viewBox="0 0 200 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="1.1"><path d="M0 12 H70 M130 12 H200"/><path d="M70 12 C78 2, 92 2, 100 12 C108 22, 122 22, 130 12"/><circle cx="100" cy="12" r="3"/></svg></div>
+
+
+<!-- ============ GLOSARIO ============ -->
+<section id="glosario" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Vocabulario de la Semana Santa</span>
+      <h2 class="h-section">Glosario cofrade</h2>
+      <p class="lede">De la A a la V, los términos imprescindibles para entender lo que se ve, se oye y se siente durante la Semana Santa.</p>
+    </div>
+    <div class="glossary-nav" id="glossaryNav"></div>
+    <div id="glossaryList"></div>
+  </div>
+</section>
+
+
+<!-- ============ PATRIMONIO COFRADE ============ -->
+<section id="patrimonio">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Templos, basílicas y sedes</span>
+      <h2 class="h-section">Patrimonio Cofrade</h2>
+      <p class="lede">Las casas de los titulares: iglesias, basílicas y ermitas que custodian la imaginería de Jerez y Málaga durante todo el año.</p>
+    </div>
+    <div class="patrimonio-grid" id="patrimonioGrid"></div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand" style="margin-bottom:14px;">
+        <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 3 L20 37 M9 13 H31 M14 37 C14 30 26 30 26 37" stroke-width="1.4" stroke-linecap="round"/><circle cx="20" cy="9" r="3" stroke-width="1.2"/></svg>
+        J&M Cofrade
+      </div>
+      <p class="muted" style="font-size:.86rem;max-width:34ch;">Enciclopedia digital dedicada al patrimonio, la historia y las hermandades de la Semana Santa de Jerez de la Frontera y Málaga.</p>
+    </div>
+    <div>
+      <h4>Explorar</h4>
+      <ul>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#hermandades">Hermandades</a></li>
+        <li><a href="#glosario">Glosario cofrade</a></li>
+        <li><a href="#patrimonio">Patrimonio</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Ciudades</h4>
+      <ul>
+        <li><a href="#jerez">Semana Santa de Jerez</a></li>
+        <li><a href="#malaga">Semana Santa de Málaga</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 J&M Cofrade · Proyecto independiente, sin vinculación oficial con ninguna hermandad.</span>
+    <span>Datos verificados a partir de fuentes públicas · Pendiente de ampliación continua.</span>
+  </div>
+</footer>
+
+
+<script>
+
+
+
+
+const ICONS = {
+  cristo: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2v20M5 8h14"/></svg>`,
+  virgen: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3c-4 3-6 7-6 11a6 6 0 0012 0c0-4-2-8-6-11z"/><circle cx="12" cy="9" r="1.4" fill="currentColor" stroke="none"/></svg>`,
+  paso: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="14" width="18" height="3"/><path d="M6 14V9h12v5M9 17v3M15 17v3"/></svg>`,
+  escudo: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-3z"/></svg>`,
+  iglesia: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2v4M9 7l3-3 3 3M5 21V11l7-5 7 5v10M5 21h14M9 21v-6h6v6"/></svg>`,
+  cam: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.4"/><path d="M9 7l1.5-2.5h3L15 7"/></svg>`,
+  flag: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 21V4l13 4-13 4"/></svg>`
+};
+
+
+const HERMANDADES = [
+  // Para cada hermandad: imagen (paso/trono), escudoImg y tunicaImg — pon la ruta del archivo, ej: "fotos/nazareno.jpg"
+  {
+    id:"jerez-nazareno", ciudad:"Jerez", color:"#7E1228",
+    nombre:"Hermandad de Jesús Nazareno",
+    fundacion:"Documentada desde el siglo XVII; entre las más antiguas de la ciudad",
+    barrio:"San Mateo", sede:"Iglesia Parroquial de Santo Domingo",
+    dia:"Madrugada del Viernes Santo",
+    titulares:[{tipo:"Cristo",nombre:"Jesús Nazareno"},{tipo:"Virgen",nombre:"Nuestra Señora de los Dolores"}],
+    paso:{nombre:"Paso de Jesús Nazareno", desc:"Conserva el estilo procesional más antiguo de Jerez: se porta a un solo hombro."},
+    banda:"Agrupación musical propia",
+    curiosidad:"Es, junto al Cristo de la Expiración, una de las dos únicas hermandades jerezanas cuyos nazarenos no cubren el rostro con antifaz, herencia de las primitivas cofradías de luz.",
+    imagen:"jesusnazareno.jpg",imagenCristo:"jesusnazareno.jpg", virgenImg:"virgenjesusnazareno.webp",  escudoImg:"cruzjesusnazareno.jpg", tunicaImg:"penitentesjesusnazarenoreal.jpeg", escudoDesc:"Cruz sobre fondo granate con orla dorada", tunicaDesc:"Túnica blanca, capirote y cíngulo morado"
+  },
+
+  {
+    id:"jerez-expiracion", ciudad:"Jerez", color:"#804000",
+    nombre:"Hermandad del Santísimo Cristo de la Expiración",
+    fundacion:"De origen antiguo; no asistió a la fundación de la Unión de Hermandades en 1938 por mantener sus propios usos",
+    barrio:"Santa María de Gracia", sede:"Parroquia de Santa María de Gracia",
+    dia:"Madrugada del Viernes Santo",
+    titulares:[{tipo:"Cristo",nombre:"Santísimo Cristo de la Expiración"},{tipo:"Virgen",nombre:"Nuestra Señora de la Esperanza"}],
+    paso:{nombre:"Paso del Cristo de la Expiración", desc:"Procesiona con el estilo 'a la egipcia': nazarenos sin antifaz y carga a un hombro."},
+    banda:"Agrupación de cornetas y tambores",
+    curiosidad:"Mantiene formas procesionales previas a la influencia sevillana del siglo XX, consideradas seña de identidad de la Semana Santa jerezana más antigua.",
+    imagen:"imagenexpiracion.jpg", imagenCristo:"cristoexpiracion.jpg", virgenImg:"virgenexpiracionjerez.jpg", escudoImg:"escudoexp.jpg", tunicaImg:"penitentesexpiracion.jpg", escudoDesc:"Tres cruces rojas sobre un barco de madera y una corona real", tunicaDesc:"Túnica negra y capirote negro"
+  },
+
+{
+    id:"jerez-defensión", ciudad:"Jerez", color:"#4E2068",
+    nombre:"Hermandad de la Defensión",
+    fundacion:" Se constituyó de manera oficial en 1957",
+    barrio:"C/Sevilla 53", sede:"Iglesia Conventual de los Padres Capuchinos",
+    dia:" Tarde y noche del Martes Santo",
+    titulares:[{tipo:"Cristo",nombre:"Santísimo Cristo de la Defensión"},{tipo:"Virgen",nombre:"María Santísima de la O"}],
+    paso:{nombre:"Paso del Cristo de la Defensión", desc:"Procesiona con el estilo 'a la egipcia': nazarenos sin antifaz y carga a un hombro."},
+    banda:"B.M Nuestra Señora de la Soledad de Cantillana y B.C.T Nuestro Padre Jesús en la Presentación al pueblo de Dos Hermanas",
+    curiosidad:"Ostenta el título de Hermandad Castrense y está estrechamente hermanada con las Fuerzas Armadas, rindiendo honores militares y celebrando cada año una tradicional misa de ofrenda al Ejército el Martes Santo.",
+    imagen:"defensionsalida.jpg", imagenCristo:"cristodefension.jpg", virgenImg:"virgendefension.jpg", escudoImg:"ladefensionlogo.jpg", tunicaImg:"penitentesdefension.jpg", escudoDesc:"Corona real, ancla y cruz de madera", tunicaDesc:"Túnica capirote y cíngulo morado"
+  },
+
+  {
+    id:"jerez-prendimiento", ciudad:"Jerez", color:"#C9A227",
+    nombre:"Hermandad de Nuestro Padre Jesús del Soberano Poder en su Prendimiento",
+    fundacion:"Miembro fundador de la Unión de Hermandades de Jerez (1938)",
+    barrio:"Centro histórico", sede:"Basílica Menor de Santa María de la Asunción",
+    dia:"Miércoles Santo",
+    titulares:[{tipo:"Cristo",nombre:"Jesús del Soberano Poder en su Prendimiento"},{tipo:"Virgen",nombre:"María Santísima del Amor y Desconsuelo"}],
+    paso:{nombre:"Paso del Prendimiento", desc:"Misterio del momento del arresto de Jesús en el huerto de los olivos."},
+    banda:"Agrupación Musical",
+    curiosidad:"Su titular del Desconsuelo se cuenta entre las dolorosas jerezanas de mayor calidad artística del siglo XVIII, según los estudios sobre el patrimonio local.",
+    imagen:"jesushermanos.jpg", imagenCristo:"jesushermanos.jpg", virgenImg:"virgenhermanos.jpg", escudoImg:"soberanoescudo.jpg", tunicaImg:"penitenteshermanos.png", escudoDesc:"Potencias doradas sobre fondo marfil", tunicaDesc:"Túnica blanca con capirote rojo burdeos intenso"
+  },
+  {
+    id:"jerez-veracruz", ciudad:"Jerez", color:"#1F3A5F",
+    nombre:"Hermandad de la Santa Vera Cruz",
+    fundacion:"Una de las cofradías fundacionales de la Unión de Hermandades en 1938, de raíz gremial",
+    barrio:"Santa María del Valle", sede:"Iglesia Parroquial de Santa María del Valle",
+    dia:"Viernes Santo",
+    titulares:[{tipo:"Cristo",nombre:"Santísimo Cristo de la Buena Muerte"},{tipo:"Virgen",nombre:"María Santísima de los Dolores"}],
+    paso:{nombre:"Paso de la Vera Cruz", desc:"Cristo crucificado de gran devoción, acompañado de los titulares marianos de la corporación."},
+    banda:"Por completar",
+    curiosidad:"Las cofradías de Vera Cruz están entre las más antiguas del cofradismo andaluz, con origen en las primitivas hermandades de disciplina del siglo XVI.",
+    imagen:"pasostacruz.jpg",imagenCristo:"jesusstacruz.jpg", virgenImg:"pasostacruz.jpg", escudoImg:"stacruzlogo.jpg", tunicaImg:"penitentesstacruz.jpg", escudoDesc:"Cruz verde sobre fondo blanco", tunicaDesc:"Túnica negra, cíngulo verde"
+  },
+
+
+{
+    id:"jerez-yedra", ciudad:"Jerez", color:"#33573B",
+    nombre:"Hermandad de la Yedra",
+    fundacion:"La Hermandad de la Yedra se fundó oficialmente en octubre de 1928 bajo la denominación original de Hermandad del Santísimo Cristo de la Yedra y Nuestra Señora de la Esperanza",
+    barrio:"San Miguel", sede:"Ermita de la Yedra",
+    dia:"Viernes Santo ('Madrugá')",
+    titulares:[{tipo:"Cristo",nombre:"Nuestro Padre Jesús de la Sentencia y Humildad"},{tipo:"Virgen",nombre:"Nuestra Señora de la Esperanza Coronada"}],
+    paso:{nombre:"Paso de la Sentencia y la Virgen de la Esperanza", desc:"Cristo crucificado de gran devoción, acompañado de los titulares marianos de la corporación."},
+    banda:"A.M La Sentencia y B.M.M Fernando Guerrero",
+    curiosidad:"La famosa artista Lola Flores, nacida precisamente en el barrio de San Miguel (La Plazuela), era una ferviente devota de la Esperanza de la Yedra. Tradicionalmente se cuenta que la Faraona siempre llevaba consigo una medalla de la Virgen y que visitaba la capilla de forma discreta en sus regresos a Jerez para rezarle",
+    imagen:"hermandadyedra.jpeg",imagenCristo:"cristoyedra.jpg", virgenImg:"virgenhermandad.jpeg", escudoImg:"escudoyedra.jpg", tunicaImg:"penitentesyedra.jpg", escudoDesc:"Cruz de madera, un ancla, corona real y lazos de tela", tunicaDesc:"Túnica blanca, cíngulo y capirote verde"
+  },
+
+  {
+    id:"jerez-piedad", ciudad:"Jerez", color:"#A8132C",
+    nombre:"Hermandad de la Piedad",
+    fundacion:"La procesión del Santo Entierro está documentada en Jerez ya en 1340, según el cronista Fray Esteban Rallón",
+    barrio:"El Calvario", sede:"Ermita del Calvario",
+    dia:"Sábado Santo",
+    titulares:[{tipo:"Cristo",nombre:"Santísimo Cristo del Santo Entierro"},{tipo:"Virgen",nombre:"María Santísima de la Soledad"}],
+    paso:{nombre:"Paso del Santo Entierro", desc:"Urna procesional con la imagen yacente de Cristo, de profundo carácter penitencial."},
+    banda:"Por completar",
+    curiosidad:"Es, con probabilidad, la procesión de mayor antigüedad documental de toda la Semana Santa jerezana.",
+    imagen:"imagenpiedad.jpg", imagenCristo:"cristopiedad.jpg", virgenImg:"virgenpiedad.jpg", escudoImg:"escudopiedad.jpg", tunicaImg:"penitentespiedadjerez.jpg", escudoDesc:"Cruz de Jerusalén con llaves cruzadas y unas escaleras", tunicaDesc:"Cuerpo entero de negro y algunos con capirote rojo"
+  },
+
+ {
+    id:"jerez-pazfátima", ciudad:"Jerez", color:"#FFFFFF",
+    nombre:"Hermandad de la Paz de la Fátima",
+    fundacion:"La corporación se gestó a finales de los años 70 a partir de las inquietudes de un grupo de niños y jóvenes del barrio que sacaban una pequeña procesión juvenil",
+    barrio:"La Constancia", sede:"Parroquia de Nuestra Señora De Fátima",
+    dia:"Lunes Santo",
+    titulares:[{tipo:"Cristo",nombre:"Nuestro Señor Jesús de la Paz en el Desprecio del Pueblo"},{tipo:"Virgen",nombre:"María Santísima Refugio de los Pecadores"}],
+    paso:{nombre:"Paso del Desprecio del Pueblo y de la Virgen del Refugio", desc:"Urna procesional con la imagen yacente de Cristo, de profundo carácter penitencial."},
+    banda:"A.M La Setencia y AMUECI",
+    curiosidad:"La parroquia de Fátima tuvo que construir una nueva puerta lateral para que pudieran salir los pasos procesionales. Al inaugurarse esa zona, se estrenó también un campanario cuya campana tiene historia propia: proviene de la emblemática Iglesia de San Miguel de Jerez.",
+    imagen:"imagenpazfat.jpg", imagenCristo:"cristopazfat.jpg", virgenImg:"virgenpazfat.webp", escudoImg:"escudopazfat.jpg", tunicaImg:"penitentespazfat.jpg", escudoDesc:"La Virgen María, una cruz y dos óvalos en donde aparece una paloma en uno de ellos", tunicaDesc:"Túnica y capa blanca de cargos y capirote rojo intenso"
+  },
+
+
+  {
+    id:"jerez-coronacion", ciudad:"Jerez", color:"#A8132C",
+    nombre:"Hermandad de la Coronación",
+    fundacion:"Miembro fundador de la Unión de Hermandades de Jerez en 1938",
+    barrio:"La Albarizuela", sede:" Capilla de los Desamparados",
+    dia:"Domingo de Ramos",
+    titulares:[{tipo:"Cristo",nombre:"Santísimo Cristo de la Coronación de Espinas"},{tipo:"Virgen",nombre:"María Santísima de la Paz en su Mayor Aflicción"}],
+    paso:{nombre:"Paso de la Coronación de Espinas", desc:"Escena de la coronación de espinas, una de las cofradías populares citadas entre las más seguidas de Jerez."},
+    banda:"Agrupación Musical de la Sentencia y  Banda de Música Maestro Dueñas",
+    curiosidad:" El antiguo paso de misterio de la cofradía (obra de 1887) era tan valorado que la hermandad se lo prestó desinteresadamente a otras cofradías recién fundadas para que pudieran realizar sus primeras salidas procesionales. Se cedió a la Hermandad de la Lanzada (en 1949 y 1950) y a la Hermandad de las Cinco Llagas (en 1951).",
+    imagen:"jesuscorona.jpg", imagenCristo:"jesuscorona.jpg", virgenImg:"virgencorona.jpg", escudoImg:"escudocorona.jpg", tunicaImg:"penitentescoronacion.jpg", escudoDesc:"Cruz de hierro junto a dos ángeles", tunicaDesc:"Túnica blanca y capirote negro"
+  },
+
+
+
+
+  
+
+  // ---------- MÁLAGA ----------
+  {
+    id:"malaga-mena", ciudad:"Málaga", color:"#1F3A5F",
+    nombre:"Cofradía del Santísimo Cristo de la Buena Muerte y Ánimas (Cristo de Mena)",
+    fundacion:"Vinculada históricamente al barrio del Perchel",
+    barrio:"El Perchel", sede:"Casa Hermandad del Perchel",
+    dia:"Jueves Santo",
+    titulares:[{tipo:"Cristo",nombre:"Santísimo Cristo de la Buena Muerte (Cristo de Mena)"}, {tipo:"Virgen",nombre:"Nuestra Señora de la Soledad Coronada"}],
+    paso:{nombre:"Trono del Cristo de Mena", desc:"Obra de gran fuerza expresiva, tallada por Francisco Palma Burgos, considerada una de las mejores imágenes de Cristo crucificado del siglo XX español."},
+    banda:"Unidad de Música de la Legión",
+    curiosidad:"Es desembarcado cada Jueves Santo en el puerto de Málaga por legionarios, que entonan el himno 'El novio de la muerte' en uno de los momentos más conocidos de toda la Semana Santa española.",
+    imagen:"cofradelegion.webp", imagenCristo:"cristomena.jpg", virgenImg:"virgenmena.jpg", escudoImg:"escudomena.jpg", tunicaImg:"penitentesmena.jpg", escudoDesc:"Corona real, espinas oxidadas y una tiara papal en el centro", tunicaDesc:"Túnica y capirote negro"
+  },
+  {
+    id:"malaga-esperanza", ciudad:"Málaga", color:"#33573B",
+    nombre:"Hermandad de la Esperanza",
+    fundacion:"Con sede en la Basílica del Paso y la Esperanza",
+    barrio:"Centro", sede:"Basílica del Paso y la Esperanza",
+    dia:"Jueves Santo",
+    titulares:[{tipo:"Virgen",nombre:"María Santísima de la Esperanza"}, {tipo:"Cristo",nombre:"Nuestro Padre Jesús Nazareno del Paso"}],
+    paso:{nombre:"Trono de palio de la Esperanza", desc:"Uno de los tronos de palio más grandes de España: supera los 4.000-5.000 kg de peso y roza los seis metros de altura, portado por más de 250 hombres de trono."},
+    banda:"Banda de música propia",
+    curiosidad:"Su trono es citado habitualmente como el de mayores dimensiones de toda la Semana Santa malagueña.",
+    imagen:"virgenesperanzamlg.webp", imagenCristo:"cristoesperanza.jpg", virgenImg:"virgenesperanzamlg.webp", escudoImg:"escudoespmlg.jpg", tunicaImg:"hermandadespmlg.jpg", escudoDesc:"Ancla y estrella sobre fondo verde esperanza", tunicaDesc:"Túnica verde, cíngulo dorado"
+  },
+
+
+ {
+    id:"malaga-dulcenombre", ciudad:"Málaga", color:"#FFFFFF",
+    nombre:"Hermandad del Dulce Nombre",
+    fundacion:"Fue fundada originalmente en 1987 por un grupo de estudiantes de las escuelas salesianas de San Bartolomé. Posteriormente se reorganizó rescatando la vinculación histórica de una antigua cofradía del convento de la Trinidad. Ingresó de forma oficial en la Agrupación de Cofradías de Málaga en el año 2003.",
+    barrio:"Capuchinos", sede:" Parroquia de la Divina Pastora y Santa Teresa",
+    dia:"Domingo de Ramos",
+    titulares:[{tipo:"Cristo",nombre:"Nuestro Padre Jesús de la Soledad"}, {tipo:"Virgen",nombre:"María Santísima del Dulce Nombre"}],
+    paso:{nombre:"Trono de nuestra María Santísima del Dulce Nombre Y Jesús de la soledad", desc:"Ambos tronos pesan entre 1700/2000 kg y son portadas por unas 150 personas."},
+    banda:"A.M Banda de Dolores  y B.M Trinidad Sinfónica",
+    curiosidad:"Nació de una manera muy humilde en 1987 por iniciativa de un grupo de adolescentes de las escuelas salesianas de San Bartolomé. Comenzaron procesionando un pequeño Ecce-Homo por las calles de su barrio antes de convertirse en una cofradía oficial de la Semana Santa malagueña.",
+    imagen:"tronodulcemlg.jpg", imagenCristo:"cristomlgdulce.jpg", virgenImg:"virgendulce.jpg", escudoImg:"escdulcenommlg.jpg", tunicaImg:"dulcenombremlg.jpg", escudoDesc:"Ancla y estrella sobre fondo verde esperanza", tunicaDesc:": Túnica marrón, capa negra y capirote color o negro o blanco"
+  },
+
+
+  {
+    id:"malaga-zamarrilla", ciudad:"Málaga", color:"#7E1228",
+    nombre:"Hermandad de Zamarrilla",
+    fundacion:"Devoción ligada a la leyenda del bandido Zamarrilla",
+    barrio:"La Trinidad", sede:"Ermita de Zamarrilla",
+    dia:"Jueves Santo",
+    titulares:[{tipo:"Cristo",nombre:"Santísimo Cristo de los Milagros"},{tipo:"Virgen",nombre:"María Santísima de la Amargura (Zamarrilla)"}],
+    paso:{nombre:"Tronos de Zamarrilla", desc:"Dos estandartes pintados al óleo sobre terciopelo, únicos en su género, acompañan a sus tronos."},
+    banda:"Escolta del Arma de Caballería (banda de cornetas y tambores)",
+    curiosidad:"La Virgen de la Amargura, conocida popularmente como 'Zamarrilla', fue coronada canónicamente en 2003.",
+    imagen:"imagenzamarrilla.webp", imagenCristo:"cristozamarrilla.jpg", virgenImg:"virgenzamarrilla.jpg", escudoImg:"zamarrillalogo.png", tunicaImg:"penitenteszamarrillamlg.jpg", escudoDesc:"Lanzas cruzadas sobre un escudo y águila bícefala", tunicaDesc:"Túnica morada, cíngulo dorado / túnica burdeos para la sección de Virgen"
+  },
+
+
+{
+    id:"malaga-misericordia", ciudad:"Málaga", color:"#C9A227",
+    nombre:"Hermandad de la Misericordia",
+    fundacion:"Fundada originalmente el 10 de abril de 1864, es una de las grandes instituciones tradicionales de la Semana Santa de Málaga.",
+    barrio:"Barrio de El Perche", sede:"Parroquia de Nuestra Señora del Carmen",
+    dia:"Procesiona durante la tarde y noche del Jueves Santo",
+    titulares:[{tipo:"Cristo",nombre:"Nuestro Padre Jesús de la Misericordia"},{tipo:"Virgen",nombre:"Nuestra Señora del Gran Poder"}],
+    paso:{nombre:"Trono de N.S del Gran Poder y El 'Chiquito'", desc:"La Virgen cobija su dolor bajo un palio exquisito, cuyas bambalinas fueron bordadas en hilo de oro entre 1927 y 1928 por las Reverendas Madres Adoratrices. Logró sobrevivir a la quema de iglesias de los años 30, convirtiéndose en una pieza patrimonial invaluable."},
+    banda:"B.C.T Nuestro Padre Jesús Cautivo de Málaga y B.M de la Cruz del Humilladero",
+    curiosidad:"Fundada originalmente el 10 de abril de 1864, es una de las grandes instituciones tradicionales de la Semana Santa de Málaga. Está estrechamente ligada al Ejército del Aire y del Espacio de España.",
+    imagen:"virgenmisericordia.jpg", imagenCristo:"cristomisericordia.jpg", virgenImg:"virgenmisericordia.jpg", escudoImg:"logomisericordia.jpg", tunicaImg:"penitentesmisericordia.jpg", escudoDesc:"Cruz negra rodeada de espinas doradas", tunicaDesc:"Túnica roja burdeos y capirote negro"
+  },
+
+
+  {
+    id:"malaga-expiracion", ciudad:"Málaga", color:"#4E2068",
+    nombre:"Archicofradía de la Expiración",
+    fundacion:"Vinculada históricamente a la Guardia Civil",
+    barrio:"El Perchel", sede:"Parroquia del Apóstol San Pedro",
+    dia:"Miércoles Santo",
+    titulares:[{tipo:"Cristo",nombre:"Santísimo Cristo de la Expiración"},{tipo:"Virgen",nombre:"María Santísima de los Dolores Coronada"}],
+    paso:{nombre:"Trono de la Expiración", desc:"La imagen del Cristo, obra del escultor Mariano Benlliure, está considerada uno de los mejores crucificados de España."},
+    banda:"Escolta de la Guardia Civil",
+    curiosidad:"La Virgen de los Dolores fue, en 1986, la primera dolorosa de Málaga coronada canónicamente por la Iglesia.",
+    imagen:"archicofradiaexpiracionmlg.webp", imagenCristo:"cristoexpiracionmlg.jpg", virgenImg:"virgenexpmalaga.jpg", escudoImg:"archiexplogo.jpg", tunicaImg:"penitentescofradiaexp.jpg", escudoDesc:"Tricornio y espada sobre fondo negro y plata", tunicaDesc:"Túnica y capirote morado oscuro"
+  },
+  {
+    id:"malaga-rico", ciudad:"Málaga", color:"#1F3A5F",
+    nombre:"Hermandad de Jesús 'El Rico'",
+    fundacion:"Tradición vinculada a un privilegio concedido por Carlos III",
+    barrio:"Centro / Victoria", sede:"Casa Hermandad de calle Victoria",
+    dia:"Miércoles Santo",
+    titulares:[{tipo:"Cristo",nombre:"Nuestro Padre Jesús 'El Rico'"},{tipo:"Virgen",nombre:"María Santísima del Amor"}],
+    paso:{nombre:"Trono de Jesús 'El Rico'", desc:"Imagen tallada en 1939 por José Navas-Parejo; su trono, de estilo barroco dorado, pesa unos 3.200 kg y lo portan 220 hombres de trono."},
+    banda:"Banda sinfónica y banda de música propias",
+    curiosidad:"Cada Miércoles Santo la hermandad ejerce el privilegio histórico de liberar a un preso, tradición que se remonta —según la leyenda local— a una epidemia durante el reinado de Carlos III.",
+    imagen:"imagenrico.jpg", imagenCristo:"jesúsrico.jpg", virgenImg:"virgenrico.jpg", escudoImg:"escrico.jpg", tunicaImg:"penitentesricos.webp", escudoDesc:"Corona real sobre cruz de Santiago y dos escudos reales", tunicaDesc:"Túnica blanca y capirote azul marino"
+  },
+
+
+{
+    id:"malaga-sanjuan", ciudad:"Málaga", color:"#7E1228",
+    nombre:"Archicofradía de Dolores de San Juan",
+    fundacion:"En el s.XVIII se fusionaron la Hermandad Sacramental (1487) y la Hermandad de Penitencia (1675) para dar a lugar a dicha Archicofradía",
+    barrio:"Centro Histórico de Málaga", sede:" Parroquia de San Juan Bautista",
+    dia:"Tarde-noche del Viernes Santo",
+    titulares:[{tipo:"Cristo",nombre:"Santísimo Cristo de la Redención"},{tipo:"Virgen",nombre:"Nuestra Señora de los Dolores"}],
+    paso:{nombre:"Trono de Nuestra Señora de los Dolores", desc:" Sus dimensiones están estrictamente limitadas para poder salir desde el interior de la Parroquia de San Juan y, sobre todo, para poder realizar la estación de penitencia cruzando el estrecho cancel de la Puerta de las Cadenas de la Catedral de Málaga."},
+    banda:"No tiene",
+    curiosidad:"Se caracteriza por un ambiente de estricto luto, silencio y recogimiento absoluto. No lleva acompañamiento musical musical tras los tronos (solo música vocal o de capilla en puntos específicos) y sus nazarenos visten túnicas de ruan negro con cinturón de esparto.",
+    imagen:"imagendsj.jpg", imagenCristo:"cristodoloressj.jpg", virgenImg:"virgendoloressj.jpg", escudoImg:"logosj.jpg", tunicaImg:"penitentessj.jpg", escudoDesc:"Cruz de hierro con óvalos", tunicaDesc:"Todas las prendas de negro"
+  },
+
+
+  {
+    id:"malaga-pollinica", ciudad:"Málaga", color:"#1F3A5F",
+    nombre:"Real Cofradía de la Pollinica",
+    fundacion:"Abre tradicionalmente la Semana Santa malagueña el Domingo de Ramos",
+    barrio:"Centro", sede:"Iglesia de San Agustín",
+    dia:"Domingo de Ramos",
+    titulares:[{tipo:"Cristo",nombre:"Nuestro Padre Jesús a su Entrada en Jerusalén (la Pollinica)"},{tipo:"Virgen",nombre:"María Santísima del Amparo"}],
+    paso:{nombre:"Trono de la Pollinica", desc:"Representa la entrada de Jesús en Jerusalén a lomos de un pollino; obra de 1943 del escultor cordobés Juan Martínez Cerrillo."},
+    banda:"Banda de música propia",
+    curiosidad:"Es, por tradición, la primera cofradía en procesionar cada Semana Santa de Málaga, marcando su apertura el Domingo de Ramos.",
+    imagen:"hermandadpollinca.jpg", imagenCristo:"lapollinicamlg.jpg", virgenImg:"virgenpollinica.jpeg", escudoImg:"escudopollinica.jpg", tunicaImg:"tunicapollinicamlg.jpg", escudoDesc:"Palma sobre fondo azul mariano", tunicaDesc:"Túnica blanca, cíngulo azul"
+  }, 
+
+ {
+    id:"malaga-salesianos", ciudad:"Málaga", color:"#FFFFFF",
+    nombre:"Hermandad de los Salesianos",
+    fundacion:"Fue creada en 1985 por un grupo de antiguos alumnos salesianos y se integró en la Agrupación de Cofradías en 1995",
+    barrio:"Barrio de Capuchinos", sede:"Santuario de María Auxiliadora",
+    dia:"Miércoles Santo",
+    titulares:[{tipo:"Cristo",nombre:"Santo Cristo de las Penas"},{tipo:"Virgen",nombre:"María Santísima del Auxilio"}],
+    paso:{nombre:"Trono del Misterio", desc:"Como aspecto destacado de su identidad social y cristiana, la hermandad mantiene desde hace varios años un tramo en silencio durante su recorrido procesional. Este espacio está diseñado de manera inclusiva para que las personas con alta sensibilidad al ruido o trastornos del espectro autista puedan contemplar los tronos en un ambiente adaptado y de recogimiento."},
+    banda:"Banda de Cornetas y Tambores de Jesús Cautivo y para la Cruz una capilla musical",
+    curiosidad:"La Hermandad Salesiana de Málaga (cuyo nombre oficial es Hermandad Salesiana y Cofradía de Nazarenos del Santo Cristo de las Penas, María Santísima del Auxilio, San Juan Evangelista y San Juan Bosco) es una corporación religiosa de la Semana Santa de Málaga que realiza su estación de penitencia el Miércoles Santo. Está completamente ligada al Colegio Salesiano de San Bartolomé y a la comunidad de Don Bosco.",
+    imagen:"tronosalesianos.jpg",imagenCristo:"salesianosmalaga.jpg", virgenImg:"virgensalesiano.jpg", escudoImg:"escudosalesiano.png", tunicaImg:"penitentessalesianos.png", escudoDesc:"Tres cruces de madera y un ancla sobre una concha rodeado de una vara de oro", tunicaDesc:"Túnica y capirote negro"
+  },
+
+
+  {
+    id:"malaga-mediadora", ciudad:"Málaga", color:"#B2FFFF",
+    nombre:"Hermandad de la Mediadora",
+    fundacion:"Se constituyó formalmente el 29 de noviembre de 1997 en las escuelas del Ave María",
+    barrio:"Centro histórico", sede:"Parroquia de San Patricio",
+    dia:"Miércoles Santo",
+    titulares:[{tipo:"Cristo",nombre:"Nuestro Padre Jesús Nazareno Redentor del Mundo"},{tipo:"Virgen",nombre:"Nuestra Señora Mediadora de la Salvación"}],
+    paso:{nombre:"Trono de Nuestra Señora Mediadora de la Salvación", desc:"La hermandad se encuentra inmersa en la ejecución del trono procesional de la Virgen. El diseño, a cargo de Salvador De los Reyes, se inspira de manera directa en la arquitectura regionalista de la antigua Tabacalera, edificio emblemático del barrio."},
+    banda:"Banda de Música de Nuestra Señora de la Paz",
+    curiosidad:"La curiosidad más importante de esta hermandad es que el diseño de su trono de palio es un homenaje arquitectónico a su propio barrio: está inspirado directamente en la fachada regionalista de la antigua fábrica de Tabacalera (hoy sede de Museos municipales y dependencias del Ayuntamiento), un edificio emblemático y seña de identidad de la zona oeste de Málaga.",
+    imagen:"tronomediadora.jpg", imagenCristo:"cristomediadora.jpg", virgenImg:"virgenmediadora.jpg", escudoImg:"logomediadora.jpg", tunicaImg:"penimediadora.jpg", escudoDesc:"Escudo de espinas con dos óvalos en el centro", tunicaDesc:"Túnica blanca con capirote azul celeste"
+  }
+
+
+];
+
+
+const TIMELINE = [
+  {c:"XV–XVI", jerez:["Referencias a procesiones del Santo Entierro ya en 1340, según el cronista Fray Esteban Rallón.","En el siglo XVI se fundan las primeras hermandades de penitencia, de origen gremial y auspiciadas por órdenes religiosas."], malaga:["Tras la conquista de la ciudad en 1487, se asientan las primeras órdenes religiosas.","En 1505 surge la primera cofradía documentada, la de las Fusionadas, vinculada a los Reyes Católicos."]},
+  {c:"XVII", jerez:["Se encargan las primeras obras de mérito artístico para procesionar, como el Cristo de la Esperanza o Jesús Nazareno.","Las hermandades comienzan a disponer de mayores fondos para su patrimonio."], malaga:["A partir del Concilio de Trento se impulsa la creación de nuevas imágenes y su salida procesional.","Se consolidan cofradías como la Vera-Cruz, la Sangre o la Soledad."]},
+  {c:"XVIII", jerez:["Siglo de esplendor del arte cofrade jerezano: tallas como el Prendimiento, las Penas o la Amargura.","Carlos III suprime las cofradías sin estatutos aprobados y prohíbe las procesiones de disciplinantes."], malaga:["Se consolida el modelo de trono, distinto al paso del resto de Andalucía.","Tradición fundacional de privilegios reales, como el de Jesús 'El Rico' de liberar a un preso."]},
+  {c:"XIX", jerez:["La invasión francesa, la desamortización y los gobiernos anticlericales debilitan a las hermandades.","Se pierde buena parte del patrimonio artístico acumulado en los siglos anteriores."], malaga:["Los tronos malagueños del XVIII y XIX son aún estructuras modestas, de estética neoclásica o barroca contenida.","El contexto político nacional frena el desarrollo de las corporaciones."]},
+  {c:"XX", jerez:["Resurgimiento de la Semana Santa a comienzos de siglo: nuevas cofradías y recuperación de antiguas devociones.","El 21 de febrero de 1938 se funda la Unión de Hermandades de Jerez. La última hermandad incorporada procesionó por primera vez en 1973."], malaga:["La Semana Santa malagueña es declarada de Interés Turístico Internacional en 1980.","Se refuerzan los vínculos con cuerpos militares, como la Legión con el Cristo de Mena, en la posguerra."]},
+  {c:"XXI", jerez:["Declarada Bien de Interés Turístico Nacional en 1993.","En 2000 se celebra una procesión magna con 31 pasos de misterio; en 2005 Jerez acoge el Encuentro Nacional de Cofradías."], malaga:["Los tronos alcanzan dimensiones récord, como el de la Esperanza, que ronda las 5 toneladas.","La Semana Santa malagueña sigue creciendo en número de hermanos y proyección internacional."]}
+];
+
+
+const GLOSARIO = [
+  {t:"Acólito", d:"Miembro de la hermandad que asiste en el cortejo portando ciriales, incensarios o atributos litúrgicos."},
+  {t:"Bambalina", d:"Cada uno de los paños de tela bordada que cuelgan del techo de palio, en su parte delantera y laterales."},
+  {t:"Candelería", d:"Conjunto de candelabros de cera situados en el frontal del paso, dispuestos en altura creciente hacia el centro."},
+  {t:"Capataz", d:"Persona que dirige a los costaleros u hombres de trono durante el recorrido, marcando los movimientos con el llamador."},
+  {t:"Capirote", d:"Cono rígido que cubre la cabeza del nazareno, símbolo penitencial por excelencia de la Semana Santa andaluza."},
+  {t:"Casa Hermandad", d:"Edificio propio de la corporación donde se reúnen sus hermanos, se guardan enseres y, en muchos casos, parte de patrimonio."},
+  {t:"Chicotá", d:"Tramo del recorrido que el paso o trono avanza de una sola vez, entre dos paradas o 'levantás'."},
+  {t:"Costalero", d:"Persona que porta el paso introducido bajo él, sobre la nuca y los hombros, propio de Sevilla y de buena parte de Andalucía (en Jerez, también presente)."},
+  {t:"Cruz de Guía", d:"Cruz que encabeza el cortejo procesional, abriendo el paso de la hermandad."},
+  {t:"Diputado de Tramo", d:"Hermano encargado de organizar y mantener el orden dentro de un tramo concreto del cortejo de nazarenos."},
+  {t:"Estación de Penitencia", d:"Nombre técnico de la salida procesional: el recorrido que la hermandad realiza hasta la Catedral y de vuelta a su sede."},
+  {t:"Fiscal", d:"Hermano que vela por el cumplimiento de las normas y el comportamiento adecuado durante la procesión."},
+  {t:"Hombre de Trono", d:"Denominación malagueña de quien porta el trono al hombro, sujetando los varales desde el exterior, sin introducirse bajo la estructura."},
+  {t:"Incensario", d:"Recipiente metálico en el que se quema incienso durante el cortejo, portado por un acólito."},
+  {t:"Levantá", d:"Momento en que los costaleros u hombres de trono elevan el paso o trono del suelo para iniciar la marcha."},
+  {t:"Llamador", d:"Pieza metálica situada en el frontal del paso que el capataz golpea para dar las órdenes de marcha, parada o levantá."},
+  {t:"Mantilla", d:"Prenda de encaje negro que cubre la cabeza de las mujeres que acompañan el cortejo vestidas de luto riguroso."},
+  {t:"Nazareno", d:"Persona que viste la túnica y el capirote de la hermandad y acompaña al paso en penitencia, con vela o cruz."},
+  {t:"Palio", d:"Techo bordado bajo el cual procesiona la imagen de la Virgen, sostenido por varales."},
+  {t:"Peana", d:"Base o plataforma sobre la que se asienta la imagen titular dentro del paso o trono."},
+  {t:"Respiradero", d:"Pieza calada, normalmente de metal plateado o dorado, que recorre el contorno bajo de la canastilla del paso."},
+  {t:"Saeta", d:"Cante flamenco de hondo sentimiento religioso que se dedica a una imagen durante su paso por la calle."},
+  {t:"Trono", d:"Denominación malagueña del paso procesional, generalmente de mayores dimensiones que el resto de Andalucía."},
+  {t:"Varal", d:"Cada una de las piezas, de madera o metal, que sostienen el palio o que sobresalen del trono para ser portadas al hombro."},
+  {t:"Venia", d:"Permiso protocolario que la hermandad solicita a la presidencia para reanudar la marcha tras pasar por la tribuna oficial."}
+];
+
+
+const CURIOSIDADES = [
+  {tag:"Jerez", t:"La segunda mayor Semana Santa de España", d:"Con más de 40 hermandades, la Semana Santa de Jerez es —tras la de Sevilla— la que reúne mayor número de cofradías de toda España."},
+  {tag:"Jerez", t:"La hermandad más joven, desde 1973", d:"La última cofradía incorporada al elenco jerezano procesionó por primera vez en 1973, frente a otras con orígenes documentados en el siglo XVI."},
+  {tag:"Jerez", t:"Una procesión documentada en 1340", d:"El cronista Fray Esteban Rallón sitúa una procesión del Santo Entierro en Jerez en el año 1340, mucho antes de la fundación formal de las primeras hermandades."},
+  {tag:"Málaga", t:"El trono más grande, cerca de 5 toneladas", d:"El trono de palio de la Esperanza ronda los 4.000-5.000 kg de peso y roza los seis metros de altura, portado por más de 250 personas."},
+  {tag:"Málaga", t:"Un preso, libre cada Miércoles Santo", d:"La Hermandad de Jesús 'El Rico' ejerce cada año el privilegio histórico de liberar a un preso, tradición ligada a una leyenda del reinado de Carlos III."},
+  {tag:"Málaga", t:"La Legión y 'El novio de la muerte'", d:"El desembarco del Cristo de Mena en el puerto, escoltado por legionarios que cantan su himno, es uno de los momentos más fotografiados de la Semana Santa española."},
+  {tag:"Ambas", t:"Pasos y tronos: dos palabras, una misma fe", d:"Lo que en Jerez (y el resto de Andalucía) se llama 'paso', en Málaga recibe el nombre de 'trono', con estructuras de mayores dimensiones y un modo distinto de portarlo."},
+  {tag:"Málaga", t:"Reconocimiento internacional desde 1980", d:"La Semana Santa de Málaga fue declarada de Interés Turístico Internacional en 1980, doce años antes de que Jerez recibiera su declaración de interés nacional."},
+  {tag:"Jerez", t:"La saeta, patrimonio de la humanidad", d:"El cante flamenco de la saeta, muy presente en la Semana Santa jerezana, forma parte del flamenco declarado Patrimonio Inmaterial de la Humanidad por la UNESCO en 2010."}
+];
+
+
+const IGLESIAS = [
+  // imagen: ruta de la foto del templo, ej: "fotos/catedral-jerez.jpg"
+  {ciudad:"Jerez", nombre:"Catedral de Nuestro Señor San Salvador", imagen:"catedraldejerez.jpg", d:"Punto de llegada de la Carrera Oficial jerezana; todas las hermandades de penitencia hacen estación de penitencia en su interior."},
+  {ciudad:"Jerez", nombre:"Basílica Menor de Nuestra Señora de la Merced", imagen:"basilicalamerced.jpg", d:"Una de las sedes canónicas más relevantes del casco histórico, cuna de varias corporaciones de gran patrimonio."},
+  {ciudad:"Jerez", nombre:"Iglesia de Santiago", imagen:"iglesiasantiago.jpg", d:"En su sala de archivo se constituyó, el 21 de febrero de 1938, la Unión de Hermandades de Jerez."},
+  {ciudad:"Jerez", nombre:"Real capilla del Calvario", imagen:"capillacalvario.jpg", d:"Sede de la Hermandad del Santo Entierro, vinculada a una de las procesiones de mayor antigüedad documental de la ciudad."},
+  {ciudad:"Jerez", nombre:"Iglesia Parroquial de Santo Domingo", imagen:"stodomingo.jpg", d:"Sede canónica de la Hermandad de Jesús Nazareno, en el corazón del barrio de San Mateo."},
+  {ciudad:"Jerez", nombre:"Parroquia de Santa María de Gracia", imagen:"conventogracia.jpg", d:"Templo que alberga varias hermandades de honda raíz jerezana, entre ellas la del Cristo de la Expiración."},
+  {ciudad:"Jerez", nombre:"Covento de Capuchinos", imagen:"capuchinos.jpg", d:"Templo que alberga a la hermandad de la Defensión."},
+  {ciudad:"Jerez", nombre:"Ermita de la Yedra", imagen:"ermitayedra.jpg", d:"La capilla de la Yedra es una capilla barroca ubicada en Jerez de la Frontera. Es la sede canónica de la Real Hermandad y Cofradía de Nazarenos de Nuestro Padre Jesús de la Sentencia y Humildad, Santísimo Cristo de la Yedra, Nuestra Señora de la Esperanza y Nuestra Señora del Rosario."},
+  {ciudad:"Jerez", nombre:"Parroquia Santa María madre de la Iglesia La Granja", imagen:"parroquiasantamaria.jpg", d:"Parroquia que alberga a la Hermandad de Nuestro Padre Jesús del Soberano Poder en su Prendimiento"},
+  {ciudad:"Málaga", nombre:"Basílica del Paso y la Esperanza", imagen:"basilicaespmlg.jpg", d:"Sede de una de las corporaciones más numerosas y queridas de la ciudad, la Hermandad de la Esperanza."},
+  {ciudad:"Málaga", nombre:"Iglesia de San Agustín", imagen:"sanagustinmlg.gif", d:"Templo de salida de la Real Cofradía de la Pollinica, que tradicionalmente abre la Semana Santa malagueña."},
+  {ciudad:"Málaga", nombre:"Ermita de Zamarrilla", imagen:"ermitadezamarrilla.jpg", d:"Pequeño templo del barrio de la Trinidad, ligado a la leyenda del bandido que da nombre popular a la Virgen de la Amargura."},
+  {ciudad:"Málaga", nombre:"Casa Hermandad de la Misericordia", imagen:"casamisericordia.JPG", d:"Sede de salida del Cristo de la Misericordia, en uno de los barrios marineros con más arraigo cofrade de la ciudad."}, 
+  {ciudad:"Málaga", nombre:"Catedral de la Encarnación", imagen:"basilicadelaenc.webp", d:"La Catedral de Málaga es el corazón neurálgico y espiritual de la Semana Santa malagueña. Su rol principal es albergar la Estación de Penitencia oficial: más de una docena de hermandades desfilan por su interior tras recorrer el Patio de los Naranjos, constituyendo el epicentro litúrgico de la ciudad."},
+  {ciudad:"Málaga", nombre:"Parroquia de Nuestra Señora del Carmen", imagen:"parroquianscarmen.jpg", d:"Templo que alberga a la hermandad de la Misericordia."},
+  {ciudad:"Málaga", nombre:"Parroquia del Apóstol San Pedro", imagen:"apostolcasa.jpg", d:"Templo que alberga a la Archicofradía de la Expiración."},
+  {ciudad:"Málaga", nombre:"Santuario de Maria Auxiliadora", imagen:"santmariaauxiliadora.jpg", d:"Templo que alberga a la Hermandad de los Salesianos."}, 
+  {ciudad:"Málaga", nombre:"Iglesia San Juan Bautista", imagen:"iglesiabautista.jpg", d:"Templo que alberga a la Archicofradía de Dolores de San Juan."},
+  {ciudad:"Málaga", nombre:"Iglesia San Patricio", imagen:"iglesiasanpatricio.jpg", d:"Templo que alberga a la Hermandad de la Mediadora."}
+];
+
+
+
+function imgSlot(label, icon, src, alt){
+  if(src){
+    return `<div class="img-slot"><img src="${src}" alt="${alt || label || ''}"></div>`;
+  }
+  return `<div class="img-slot">${icon}<span>${label}</span></div>`;
+}
+
+
+function renderHermandadCard(h){
+  return `
+  <article class="h-card-el" style="--accent:${h.color}" data-id="${h.id}" data-ciudad="${h.ciudad}" data-dia="${h.dia}" data-sede="${h.sede}"
+    data-search="${(h.nombre+' '+h.barrio+' '+h.sede).toLowerCase()}">
+    <div class="accent-bar"></div>
+    ${imgSlot('Imagen del paso/trono — sustituir', ICONS.paso, h.imagen, h.nombre)}
+    <div class="h-card-body">
+      <span class="city-pill">${h.ciudad}</span>
+      <h3>${h.nombre}</h3>
+      <div class="meta"><b>Barrio:</b> ${h.barrio} &nbsp;·&nbsp; <b>Día:</b> ${h.dia}</div>
+      <p class="desc">${h.curiosidad}</p>
+      <div class="tag-row">
+        ${h.titulares.map(t=>`<span>${t.tipo}: ${t.nombre}</span>`).join('')}
+      </div>
+      <details>
+        <summary>Ficha completa</summary>
+        <div class="more">
+          <div class="field"><b>Fundación:</b> ${h.fundacion}</div>
+          <div class="field"><b>Sede canónica:</b> ${h.sede}</div>
+          <div class="field"><b>Paso / trono:</b> ${h.paso.nombre} — ${h.paso.desc}</div>
+          <div class="field"><b>Banda:</b> ${h.banda}</div>
+          <div class="field"><b>Escudo:</b> ${h.escudoDesc}</div>
+          <div class="field"><b>Túnica:</b> ${h.tunicaDesc}</div>
+        </div>
+      </details>
+    </div>
+  </article>`;
+}
+
+
+function renderHermandades(){
+  document.getElementById('hermandadesGrid').innerHTML = HERMANDADES.map(renderHermandadCard).join('');
+}
+
+
+function renderTitulares(){
+  const grid = document.getElementById('titularesGrid');
+  const items = HERMANDADES.flatMap(h => h.titulares.map(t => ({...t, h})));
+
+  grid.innerHTML = items.map(it=>`
+    <div class="mini-card" style="--accent:${it.h.color}">
+      ${imgSlot(
+        'Imagen — sustituir',
+        it.tipo==='Cristo'?ICONS.cristo:ICONS.virgen,
+        it.tipo==='Cristo' ? it.h.imagenCristo : it.h.virgenImg,
+        it.nombre
+      )}
+      <div class="body">
+        <span class="type">${it.tipo} · ${it.h.ciudad}</span>
+        <h4>${it.nombre}</h4>
+        <div class="sub">${it.h.nombre}</div>
+      </div>
+    </div>`).join('');
+}
+
+
+function renderPasos(){
+  const grid = document.getElementById('pasosGrid');
+  grid.innerHTML = HERMANDADES.map(h=>`
+    <div class="mini-card" style="--accent:${h.color}">
+      ${imgSlot('', ICONS.paso, h.paso.imagen || h.imagen, h.paso.nombre)}
+      <div class="body">
+        <span class="type">${h.ciudad==='Málaga'?'Trono':'Paso'} · ${h.ciudad}</span>
+        <h4>${h.paso.nombre}</h4>
+        <div class="sub">${h.nombre}</div>
+      </div>
+    </div>`).join('');
+}
+
+
+function renderEscudos(){
+  const grid = document.getElementById('escudosGrid');
+  grid.innerHTML = HERMANDADES.map(h=>`
+    <div class="mini-card swatch-card" style="--accent:${h.color}">
+      <div class="img-slot">
+        <div class="swatch-half" style="background:color-mix(in srgb, ${h.color} 30%, var(--bg-soft));">${h.escudoImg ? `<img src="${h.escudoImg}" alt="Escudo de ${h.nombre}">` : ICONS.escudo}</div>
+        <div class="swatch-half" style="background:var(--bg-soft);">${h.tunicaImg ? `<img src="${h.tunicaImg}" alt="Túnica de ${h.nombre}">` : ICONS.flag}</div>
+      </div>
+      <div class="body">
+        <span class="type">${h.ciudad}</span>
+        <h4>${h.nombre}</h4>
+        <div class="sub">${h.escudoDesc} · ${h.tunicaDesc}</div>
+      </div>
+    </div>`).join('');
+}
+
+
+function renderCuriosidades(){
+  const grid = document.getElementById('curiosidadesGrid');
+  grid.innerHTML = CURIOSIDADES.map(c=>`
+    <div class="curio-card">
+      <span class="tag">${c.tag}</span>
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>
+      <h4>${c.t}</h4>
+      <p>${c.d}</p>
+    </div>`).join('');
+}
+
+
+function renderGlosario(){
+  const sorted = [...GLOSARIO].sort((a,b)=>a.t.localeCompare(b.t,'es'));
+  const groups = {};
+  sorted.forEach(g=>{ const l=g.t[0].toUpperCase(); (groups[l]=groups[l]||[]).push(g); });
+  const letters = Object.keys(groups);
+  document.getElementById('glossaryNav').innerHTML = letters.map(l=>`<a href="#g-${l}">${l}</a>`).join('');
+  document.getElementById('glossaryList').innerHTML = letters.map(l=>`
+    <div id="g-${l}">
+      <div class="gloss-letter">${l}</div>
+      <dl class="gloss-grid">
+        ${groups[l].map(g=>`<div class="gloss-item"><dt>${g.t}</dt><dd>${g.d}</dd></div>`).join('')}
+      </dl>
+    </div>`).join('');
+}
+
+
+function renderPatrimonio(){
+  const grid = document.getElementById('patrimonioGrid');
+  grid.innerHTML = IGLESIAS.map(i=>`
+    <div class="iglesia-card">
+      ${imgSlot('', ICONS.iglesia, i.imagen, i.nombre)}
+      <div class="body">
+        <span class="city-pill">${i.ciudad}</span>
+        <h3>${i.nombre}</h3>
+        <p>${i.d}</p>
+      </div>
+    </div>`).join('');
+}
+
+
+function renderTimeline(){
+  const tabs = document.getElementById('centuryTabs');
+  tabs.innerHTML = TIMELINE.map((t,i)=>`<button class="chip ${i===0?'active':''}" data-i="${i}">Siglo ${t.c}</button>`).join('');
+  tabs.addEventListener('click', e=>{
+    const btn = e.target.closest('button'); if(!btn) return;
+    tabs.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    showCentury(+btn.dataset.i);
+  });
+  showCentury(0);
+}
+function showCentury(i){
+  const t = TIMELINE[i];
+  document.getElementById('timelinePanel').innerHTML = `
+    <div class="timeline-col">
+      <span class="city-tag" style="color:var(--burgundy-light)">Jerez de la Frontera</span>
+      <p>Siglo ${t.c}</p>
+      <ul>${t.jerez.map(x=>`<li>${x}</li>`).join('')}</ul>
+    </div>
+    <div class="timeline-divider"></div>
+    <div class="timeline-col">
+      <span class="city-tag" style="color:var(--marian)">Málaga</span>
+      <p>Siglo ${t.c}</p>
+      <ul>${t.malaga.map(x=>`<li>${x}</li>`).join('')}</ul>
+    </div>`;
+}
+
+
+/* ---------- global search modal ---------- */
+function buildSearchIndex(){
+  const idx = [];
+  HERMANDADES.forEach(h=> idx.push({label:h.nombre, sub:`Hermandad · ${h.ciudad}`, href:'#'+h.id, anchor:'hermandades'}));
+  IGLESIAS.forEach(i=> idx.push({label:i.nombre, sub:`Templo · ${i.ciudad}`, href:'#patrimonio', anchor:'patrimonio'}));
+  GLOSARIO.forEach(g=> idx.push({label:g.t, sub:'Glosario cofrade', href:'#glosario', anchor:'glosario'}));
+  return idx;
+}
+let SEARCH_INDEX = [];
+
+
+function initSearchModal(){
+  const overlay = document.getElementById('searchModal');
+  const input = document.getElementById('globalSearch');
+  const results = document.getElementById('searchResults');
+  const openBtn = document.getElementById('openSearch');
+  if(!overlay || !input || !results || !openBtn) return;
+  SEARCH_INDEX = buildSearchIndex();
+  openBtn.addEventListener('click', ()=>{
+    overlay.classList.add('open'); input.value=''; renderSearchResults(''); input.focus();
+  });
+  document.getElementById('closeSearch').addEventListener('click', ()=> overlay.classList.remove('open'));
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.classList.remove('open'); });
+  input.addEventListener('input', ()=> renderSearchResults(input.value));
+  document.addEventListener('keydown', e=>{
+    if(e.key==='Escape') overlay.classList.remove('open');
+    if((e.ctrlKey||e.metaKey) && e.key==='k'){ e.preventDefault(); overlay.classList.add('open'); input.focus(); }
+  });
+  function renderSearchResults(q){
+    q = q.toLowerCase().trim();
+    const matches = q ? SEARCH_INDEX.filter(it=>it.label.toLowerCase().includes(q)).slice(0,12) : SEARCH_INDEX.slice(0,8);
+    results.innerHTML = matches.map(m=>`<a href="${m.href}" onclick="document.getElementById('searchModal').classList.remove('open')">${m.label} <small>${m.sub}</small></a>`).join('') || `<p class="muted" style="padding:12px 8px;">Sin resultados.</p>`;
+  }
+}
+
+
+/* ---------- nav toggle / active link ---------- */
+function initNav(){
+  const menuToggle = document.getElementById('menuToggle');
+  if(menuToggle){
+    menuToggle.addEventListener('click', ()=>{
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  }
+  const links = document.querySelectorAll('nav.links a');
+  const sections = [...links].map(l=>document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        const match = [...links].find(l=>l.getAttribute('href')==='#'+e.target.id);
+        if(match) match.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-40% 0px -50% 0px'});
+  sections.forEach(s=>obs.observe(s));
+}
+
+
+/* ---------- init ---------- */
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderHermandades();
+  renderTitulares();
+  renderPasos();
+  renderEscudos();
+  renderCuriosidades();
+  renderGlosario();
+  renderPatrimonio();
+  renderTimeline();
+  initSearchModal();
+  initNav();
+});
+</script>
+</body>
+</html>
